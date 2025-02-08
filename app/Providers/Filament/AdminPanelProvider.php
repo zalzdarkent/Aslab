@@ -27,6 +27,14 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->spa()
+            // ->navigationGroups([
+            //     'Jabatan',
+            //     'Prodi',
+            //     'Anggota',
+            // ])
+            ->collapsibleNavigationGroups(false)
+            ->sidebarFullyCollapsibleOnDesktop()
             ->colors([
                 'primary' => Color::Amber,
             ])

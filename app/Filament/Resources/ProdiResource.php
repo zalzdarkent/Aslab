@@ -16,8 +16,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ProdiResource extends Resource
 {
     protected static ?string $model = Prodi::class;
-
+    public static function getNavigationLabel(): string
+    {
+        return 'Prodi';
+    }
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Member Aslab';
 
     public static function form(Form $form): Form
     {

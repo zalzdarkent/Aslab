@@ -16,8 +16,12 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class JabatanResource extends Resource
 {
     protected static ?string $model = Jabatan::class;
-
+    public static function getNavigationLabel(): string
+    {
+        return 'Jabatan';
+    }
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Member Aslab';
 
     public static function form(Form $form): Form
     {

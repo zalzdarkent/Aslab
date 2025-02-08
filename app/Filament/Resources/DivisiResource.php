@@ -16,9 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class DivisiResource extends Resource
 {
     protected static ?string $model = Divisi::class;
-    protected static ?string $label = 'Divisi';
-    protected static ?string $navigationLabel = 'Divisi';
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // protected static ?string $label = 'Divisi';
+    public static function getNavigationLabel(): string
+    {
+        return 'Divisi';
+    }
+    protected static ?string $navigationIcon = 'heroicon-s-code-bracket';
+    protected static ?string $activeNavigationIcon = 'heroicon-c-code-bracket';
+    // protected static ?int $navigationSort = 3;
+    protected static ?string $navigationGroup = 'Member Aslab';
 
     public static function form(Form $form): Form
     {
