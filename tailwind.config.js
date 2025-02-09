@@ -8,13 +8,24 @@ export default {
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
+        "./node_modules/flowbite/**/*.js"
     ],
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                background: "#030712", // Hitam khas Filament
+                primary: {
+                    DEFAULT: "#3b82f6", // Biru utama (500)
+                    dark: "#1e40af", // Biru gelap (800)
+                    light: "#93c5fd", // Biru terang (300)
+                }
+            }
         },
     },
-    plugins: [],
+    plugins: [
+        require('flowbite/plugin')
+    ],
 };
