@@ -23,7 +23,7 @@
 
 <body class="bg-white dark:bg-[#111827]">
     {{-- navbar --}}
-    <nav class="bg-white dark:bg-[#111827] fixed w-full z-20 top-0 dark:border-gray-600">
+    <nav class="bg-white dark:bg-[#111827] fixed w-full z-20 top-0 dark:border-gray-600 shadow-md">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
@@ -59,23 +59,25 @@
                 <ul
                     class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                        <a href="#home"
+                            class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                             aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#about" id="nav-about"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                            About
-                        </a>
+                        <a href="#about"
+                            class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                        <a href="#services"
+                            class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                        <a href="#structural"
+                            class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -83,7 +85,7 @@
     </nav>
 
     {{-- jumbotron --}}
-    <section class="bg-white dark:bg-gray-900 mt-16 md:mt-24 lg:mt-32">
+    <section id="home" class="bg-white dark:bg-gray-900 pt-16 md:pt-24 lg:pt-32">
         <div
             class="flex flex-col-reverse items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-0 lg:py-16">
             <!-- Teks -->
@@ -92,8 +94,7 @@
                     class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-gray-900 dark:text-white">
                     Payments tool for software companies
                 </h1>
-                <p
-                    class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl text-gray-900 dark:text-white">
+                <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-900 dark:text-white">
                     From checkout to global sales tax compliance, companies around the world use Flowbite to simplify
                     their payment stack.
                 </p>
@@ -177,7 +178,7 @@
     </section>
 
     {{-- about us --}}
-    <section id="about" class="mt-16 md:mt-24 lg:mt-32 bg-gray-100 dark:bg-gray-800 py-16">
+    <section id="about" class="pt-16 md:pt-24 lg:pt-32 bg-gray-100 dark:bg-gray-800 py-16">
         <div class="max-w-screen-xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <!-- Gambar -->
@@ -225,7 +226,7 @@
     </section>
 
     {{-- Services Section with Card Carousel --}}
-    <section id="services" class="mt-10 md:mt-24 lg:mt-32 py-16">
+    <section id="services" class="pt-16 md:pt-24 lg:pt-32 py-16">
         <div class="max-w-screen-xl mx-auto px-4">
             <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center">Our New Services</h2>
             <p class="text-lg text-gray-700 dark:text-gray-400 text-center mb-12">
@@ -421,6 +422,60 @@
                     }
                 };
                 updateCount();
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fungsi untuk menentukan section yang aktif
+            function setActiveSection() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-link');
+
+                // Posisi scroll + offset
+                const scrollPosition = window.scrollY + 100;
+
+                // Periksa setiap section
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        // Hapus kelas aktif dari semua link
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-blue-700', 'md:text-blue-700',
+                                'dark:text-blue-500');
+                            link.classList.add('text-gray-900', 'dark:text-white');
+                        });
+
+                        // Tambah kelas aktif ke link yang sesuai
+                        const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.remove('text-gray-900', 'dark:text-white');
+                            activeLink.classList.add('text-blue-700', 'md:text-blue-700',
+                                'dark:text-blue-500');
+                        }
+                    }
+                });
+            }
+
+            // Tambahkan event listener untuk scroll
+            window.addEventListener('scroll', setActiveSection);
+
+            // Jalankan sekali saat halaman dimuat
+            setActiveSection();
+
+            // Smooth scroll saat klik link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
     </script>
