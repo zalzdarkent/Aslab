@@ -22,6 +22,7 @@
 </head>
 
 <body class="bg-white dark:bg-[#111827]">
+    {{-- navbar --}}
     <nav class="bg-white dark:bg-[#111827] fixed w-full z-20 top-0 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -81,6 +82,7 @@
         </div>
     </nav>
 
+    {{-- jumbotron --}}
     <section class="bg-white dark:bg-gray-900 mt-16 md:mt-24 lg:mt-32">
         <div
             class="flex flex-col-reverse items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-0 lg:py-16">
@@ -115,7 +117,67 @@
         </div>
     </section>
 
-    <section id="about" class="bg-gray-100 dark:bg-gray-800 py-16">
+    {{-- counter section --}}
+    <section class="bg-white dark:bg-gray-900 py-12 mt-4">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <!-- Card 1 -->
+                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
+                    <div class="flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="1200">0</h2>
+                    <p class="text-gray-500 dark:text-gray-400">Total Users</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
+                    <div class="flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 9l-6 6m0 0l6 6m-6-6h12"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="350">0</h2>
+                    <p class="text-gray-500 dark:text-gray-400">Completed Projects</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
+                    <div class="flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 8h16M4 16h16"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="5000">0</h2>
+                    <p class="text-gray-500 dark:text-gray-400">Hours of Support</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
+                    <div class="flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6">
+                            </path>
+                        </svg>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="25">0</h2>
+                    <p class="text-gray-500 dark:text-gray-400">Hard Workers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- about us --}}
+    <section id="about" class="mt-16 md:mt-24 lg:mt-32 bg-gray-100 dark:bg-gray-800 py-16">
         <div class="max-w-screen-xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <!-- Gambar -->
@@ -158,6 +220,114 @@
                         </svg>
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Services Section with Card Carousel --}}
+    <section id="services" class="mt-10 md:mt-24 lg:mt-32 py-16">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center">Our New Services</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-400 text-center mb-12">
+                We provide a range of innovative solutions that help your business grow and succeed in a fast-changing
+                digital landscape. Explore our services below and see how we can help you achieve your goals.
+            </p>
+            <div class="flex space-x-4">
+                <!-- Card 1 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <a href="#">
+                        <img class="rounded-t-lg transition-transform transform hover:scale-110"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
+                            alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5
+                                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white transition-all duration-300 hover:border-b-2 hover:border-blue-500">
+                                Noteworthy technology acquisitions 2021</h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300">
+                            Read more
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2 transition-all duration-300 transform hover:translate-x-1 hover:scale-110"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <a href="#">
+                        <img class="rounded-t-lg transition-transform transform hover:scale-110"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
+                            alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5
+                                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white transition-all duration-300 hover:border-b-2 hover:border-blue-500">
+                                Noteworthy technology acquisitions 2021</h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300">
+                            Read more
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2 transition-all duration-300 transform hover:translate-x-1 hover:scale-110"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <a href="#">
+                        <img class="rounded-t-lg transition-transform transform hover:scale-110"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
+                            alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5
+                                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white transition-all duration-300 hover:border-b-2 hover:border-blue-500">
+                                Noteworthy technology acquisitions 2021</h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise
+                            technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300">
+                            Read more
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2 transition-all duration-300 transform hover:translate-x-1 hover:scale-110"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <a href="#"
+                    class="inline-flex items-center px-6 py-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300">
+                    Lihat Selengkapnya
+                    <svg class="rtl:rotate-180 w-4 h-4 ms-2 transition-all duration-300 transform hover:translate-x-1 hover:scale-110"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -231,6 +401,27 @@
             }
 
             window.addEventListener("scroll", checkScroll);
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const counters = document.querySelectorAll(".count");
+            const speed = 100; // Kecepatan animasi
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute("data-count");
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 30);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
         });
     </script>
 </body>
