@@ -8,15 +8,8 @@
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
-        .active {
-            color: #1d4ed8;
-            /* Biru untuk mode terang */
-            font-weight: bold;
-        }
-
-        .dark .active {
-            color: #3b82f6;
-            /* Biru lebih terang di mode gelap */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -72,8 +65,8 @@
                             class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
                     </li>
                     <li>
-                        <a href="#structural"
-                            class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                        <a href="#team"
+                            class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Team</a>
                     </li>
                     <li>
                         <a href="#contact"
@@ -98,11 +91,11 @@
                     From checkout to global sales tax compliance, companies around the world use Flowbite to simplify
                     their payment stack.
                 </p>
-                <a href="#"
-                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                <a href="#about"
+                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 transform transition-all duration-300 group">
                     Get started
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-5 h-5 ml-2 -mr-1 transition-transform transform group-hover:translate-x-2 group-hover:rotate-90"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                             clip-rule="evenodd"></path>
@@ -123,55 +116,78 @@
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <!-- Card 1 -->
-                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
-                    <div class="flex justify-center mb-2">
-                        <svg class="w-10 h-10 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                <div
+                    class="relative p-6 bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden group cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-blue-600 scale-y-0 origin-bottom transition-transform duration-300 ease-out group-hover:scale-y-100">
+                    </div>
+                    <div class="relative flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-blue-500 transition-colors duration-300 group-hover:text-white"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
                             </path>
                         </svg>
                     </div>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="1200">0</h2>
-                    <p class="text-gray-500 dark:text-gray-400">Total Users</p>
+                    <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
+                        data-count="1200">0</h2>
+                    <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Total Users</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
-                    <div class="flex justify-center mb-2">
-                        <svg class="w-10 h-10 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                <div
+                    class="relative p-6 bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden group cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-blue-600 scale-y-0 origin-bottom transition-transform duration-300 ease-out group-hover:scale-y-100">
+                    </div>
+                    <div class="relative flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-green-500 transition-colors duration-300 group-hover:text-white"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M14 9l-6 6m0 0l6 6m-6-6h12"></path>
                         </svg>
                     </div>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="350">0</h2>
-                    <p class="text-gray-500 dark:text-gray-400">Completed Projects</p>
+                    <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
+                        data-count="350">0</h2>
+                    <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Completed Projects</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
-                    <div class="flex justify-center mb-2">
-                        <svg class="w-10 h-10 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                <div
+                    class="relative p-6 bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden group cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-blue-600 scale-y-0 origin-bottom transition-transform duration-300 ease-out group-hover:scale-y-100">
+                    </div>
+                    <div class="relative flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-yellow-500 transition-colors duration-300 group-hover:text-white"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 8h16M4 16h16"></path>
                         </svg>
                     </div>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="5000">0</h2>
-                    <p class="text-gray-500 dark:text-gray-400">Hours of Support</p>
+                    <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
+                        data-count="5000">0</h2>
+                    <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Hours of Support</p>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="p-6 bg-white dark:bg-gray-800 shadow rounded-lg">
-                    <div class="flex justify-center mb-2">
-                        <svg class="w-10 h-10 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                <div
+                    class="relative p-6 bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden group cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-blue-600 scale-y-0 origin-bottom transition-transform duration-300 ease-out group-hover:scale-y-100">
+                    </div>
+                    <div class="relative flex justify-center mb-2">
+                        <svg class="w-10 h-10 text-red-500 transition-colors duration-300 group-hover:text-white"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6">
                             </path>
                         </svg>
                     </div>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white count" data-count="25">0</h2>
-                    <p class="text-gray-500 dark:text-gray-400">Hard Workers</p>
+                    <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
+                        data-count="25">0</h2>
+                    <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Hard Workers</p>
                 </div>
             </div>
         </div>
@@ -333,6 +349,30 @@
         </div>
     </section>
 
+    {{-- User Profile Section with Carousel --}}
+    <section id="team" class="py-16 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center">Meet Our Team</h2>
+            <p class="text-lg text-gray-700 dark:text-gray-400 text-center mb-12">
+                Get to know the talented individuals behind our company who work tirelessly to deliver innovative
+                solutions.
+            </p>
+
+            {{-- div user pprofile --}}
+
+            <div class="flex justify-center mt-8">
+                <a href="#"
+                    class="inline-flex items-center px-6 py-3 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-300">
+                    Lihat Selengkapnya
+                    <svg class="rtl:rotate-180 w-4 h-4 ms-2 transition-all duration-300 transform hover:translate-x-1 hover:scale-110"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
