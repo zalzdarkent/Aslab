@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,19 +7,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .active {
+            color: #1d4ed8;
+            /* Biru untuk mode terang */
+            font-weight: bold;
+        }
+
+        .dark .active {
+            color: #3b82f6;
+            /* Biru lebih terang di mode gelap */
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-white dark:bg-[#111827]">
     <nav class="bg-white dark:bg-[#111827] fixed w-full z-20 top-0 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                <span
+                    class="self-center text-2xl font-semibold whitespace-nowrap text-gray-900 dark:text-white">Flowbite</span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
-                    started</button>
+                <button id="theme-toggle" type="button"
+                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
                 <button data-collapse-toggle="navbar-sticky" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-sticky" aria-expanded="false">
@@ -40,8 +63,10 @@
                             aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                        <a href="#about" id="nav-about"
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                            About
+                        </a>
                     </li>
                     <li>
                         <a href="#"
@@ -56,45 +81,158 @@
         </div>
     </nav>
 
-    {{-- <section class="relative w-full h-screen pt-20">
-        <!-- Swiper -->
-        <div class="swiper mySwiper absolute inset-0 z-0">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide bg-cover bg-center h-screen"
-                    style="background-image: url('{{ asset('images/Aslab_2025.jpg') }}');">
-                </div>
-                <div class="swiper-slide bg-cover bg-center h-screen"
-                    style="background-image: url('{{ asset('images/1721966681155.jpg') }}"></div>
-                <div class="swiper-slide bg-cover bg-center h-screen"
-                    style="background-image: url('{{ asset('images/Soal7.jpg') }}');"></div>
+    <section class="bg-white dark:bg-gray-900 mt-16 md:mt-24 lg:mt-32">
+        <div
+            class="flex flex-col-reverse items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-0 lg:py-16">
+            <!-- Teks -->
+            <div class="lg:col-span-7">
+                <h1
+                    class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-gray-900 dark:text-white">
+                    Payments tool for software companies
+                </h1>
+                <p
+                    class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl text-gray-900 dark:text-white">
+                    From checkout to global sales tax compliance, companies around the world use Flowbite to simplify
+                    their payment stack.
+                </p>
+                <a href="#"
+                    class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                    Get started
+                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Gambar -->
+            <div class="flex justify-center lg:col-span-5 order-last lg:order-none">
+                <img class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
             </div>
         </div>
+    </section>
 
-        <!-- Copywriting -->
-        <div
-            class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50">
-            <h1 class="text-4xl md:text-6xl font-extrabold">Asisten Lab Komputer UNSIKA</h1>
-            <p class="text-lg md:text-2xl mt-4 max-w-2xl">
-                Tempat terbaik untuk belajar dan berkembang dengan teknologi terkini.
-            </p>
-            <a href="#"
-                class="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition">
-                Pelajari Lebih Lanjut
-            </a>
+    <section id="about" class="bg-gray-100 dark:bg-gray-800 py-16">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Gambar -->
+                <div class="flex justify-center">
+                    <img class="w-full max-w-sm md:max-w-md lg:max-w-lg"
+                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
+                        alt="About Us Image">
+                </div>
+
+                <!-- Teks -->
+                <div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">About Us</h2>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6">
+                        We are committed to providing top-notch services with cutting-edge technology.
+                        Our team of professionals ensures that your experience is seamless and efficient.
+                    </p>
+                    <!-- List dengan nomor -->
+                    <ol class="max-w-md space-y-1 text-gray-500 list-decimal list-inside dark:text-gray-400">
+                        <li>
+                            <span class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span> with <span
+                                class="font-semibold text-gray-900 dark:text-white">70</span> points
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-900 dark:text-white">Jese Leos</span> with <span
+                                class="font-semibold text-gray-900 dark:text-white">63</span> points
+                        </li>
+                        <li>
+                            <span class="font-semibold text-gray-900 dark:text-white">Leslie Livingston</span> with
+                            <span class="font-semibold text-gray-900 dark:text-white">57</span> points
+                        </li>
+                    </ol>
+                    <a href="#"
+                        class="mt-10 md:mt-10 lg:mt-10 inline-flex items-center px-5 py-3 text-base font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                        Learn More
+                        <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "fade",
-            loop: true,
-            autoplay: {
-                delay: 3000, // Ganti gambar setiap 3 detik
-                disableOnInteraction: false,
-            },
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Change the icons inside the button based on previous settings
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        var themeToggleBtn = document.getElementById('theme-toggle');
+
+        themeToggleBtn.addEventListener('click', function() {
+
+            // toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // if set via local storage previously
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+
+                // if NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+
         });
-    </script> --}}
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const aboutSection = document.getElementById("about");
+            const aboutNav = document.getElementById("nav-about");
+
+            function checkScroll() {
+                const sectionTop = aboutSection.offsetTop - 100; // Adjust untuk navbar tinggi
+                const sectionBottom = sectionTop + aboutSection.offsetHeight;
+                const scrollY = window.scrollY;
+
+                if (scrollY >= sectionTop && scrollY < sectionBottom) {
+                    aboutNav.classList.add("active");
+                } else {
+                    aboutNav.classList.remove("active");
+                }
+            }
+
+            window.addEventListener("scroll", checkScroll);
+        });
+    </script>
 </body>
 
 </html>
