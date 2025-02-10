@@ -7,11 +7,48 @@ body {
     @apply bg-background text-white;
 }
 
+html,
+body {
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    transition: background-color 500ms ease-in-out,
+        border-color 500ms ease-in-out, color 300ms ease-in-out,
+        opacity 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+/* Animasi untuk icon */
+#theme-toggle-dark-icon,
+#theme-toggle-light-icon {
+    transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+#theme-toggle-dark-icon.visible,
+#theme-toggle-light-icon.visible {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+#theme-toggle-dark-icon.hidden,
+#theme-toggle-light-icon.hidden {
+    transform: rotate(90deg) scale(0);
+    opacity: 0;
+}
+
 /* img jumbotron */
 @keyframes floating {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .floating {
@@ -20,8 +57,12 @@ body {
 
 /* jumbotron */
 @keyframes moveLines {
-    0% { background-position: 0 0; }
-    100% { background-position: 100px 100px; }
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
 }
 
 .animated-lines {
