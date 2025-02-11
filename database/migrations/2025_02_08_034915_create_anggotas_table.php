@@ -33,6 +33,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('npm')->unique();
+            $table->string('photo');
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('github');
+            $table->string('twitterx');
             // Foreign Key
             $table->unsignedBigInteger('jabatan_id');
             $table->unsignedBigInteger('divisi_id');

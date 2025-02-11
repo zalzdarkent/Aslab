@@ -2,19 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AnggotaResource\Pages;
-use App\Filament\Resources\AnggotaResource\RelationManagers;
-use App\Models\Anggota;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Anggota;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\AnggotaResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\AnggotaResource\RelationManagers;
 
 class AnggotaResource extends Resource
 {
@@ -33,38 +35,62 @@ class AnggotaResource extends Resource
             ->schema([
                 Card::make()
                     ->schema([
-                        TextInput::make('name')
-                            ->required()
-                            ->maxLength(255),
+                        Grid::make(5)
+                            ->schema([
+                                TextInput::make('name')
+                                    ->required()
+                                    ->maxLength(255),
 
-                        TextInput::make('npm')
-                            ->required()
-                            ->maxLength(255),
+                                TextInput::make('npm')
+                                    ->required()
+                                    ->maxLength(255),
 
-                        Select::make('jabatan_id')
-                            ->label('Jabatan')
-                            ->relationship('jabatan', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->required(),
+                                Select::make('jabatan_id')
+                                    ->label('Jabatan')
+                                    ->relationship('jabatan', 'name')
+                                    ->searchable()
+                                    ->preload()
+                                    ->required(),
 
-                        Select::make('divisi_id')
-                            ->label('Divisi')
-                            ->relationship('divisi', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->required(),
+                                Select::make('divisi_id')
+                                    ->label('Divisi')
+                                    ->relationship('divisi', 'name')
+                                    ->searchable()
+                                    ->preload()
+                                    ->required(),
 
-                        Select::make('prodi_id')
-                            ->label('Prodi')
-                            ->relationship('prodi', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->required(),
-                    ])
+                                Select::make('prodi_id')
+                                    ->label('Prodi')
+                                    ->relationship('prodi', 'name')
+                                    ->searchable()
+                                    ->preload()
+                                    ->required(),
+
+                                FileUpload::make('foto')
+                                    ->label('Foto')
+                                    ->image()
+                                    ->directory('uploads/foto')
+                                    ->required(),
+
+                                TextInput::make('facebook')
+                                    ->label('Facebook')
+                                    ->maxLength(255),
+
+                                TextInput::make('instagram')
+                                    ->label('Instagram')
+                                    ->maxLength(255),
+
+                                TextInput::make('github')
+                                    ->label('GitHub')
+                                    ->maxLength(255),
+
+                                TextInput::make('twitter')
+                                    ->label('X (Twitter)')
+                                    ->maxLength(255),
+                            ]),
+                    ]),
             ]);
     }
-
 
     public static function table(Table $table): Table
     {
