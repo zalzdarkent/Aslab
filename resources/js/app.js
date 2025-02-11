@@ -219,34 +219,33 @@ document.addEventListener('alpine:init', () => {
     }));
 });
 
-// dark mode animation
-document.addEventListener('DOMContentLoaded', function() {
-    // Set tema awal berdasarkan class 'dark' di html
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
+// activity
+document.addEventListener("DOMContentLoaded", function () {
+    let items = document.querySelectorAll(".activity-item");
+    let loadMoreBtn = document.getElementById("loadMore");
+    let visibleItems = 6;
 
-    // Fungsi untuk update visibility icon
-    function updateIcons(isDark) {
-        if (isDark) {
-            darkIcon.classList.remove('visible');
-            darkIcon.classList.add('hidden');
-            lightIcon.classList.add('visible');
-            lightIcon.classList.remove('hidden');
-        } else {
-            lightIcon.classList.remove('visible');
-            lightIcon.classList.add('hidden');
-            darkIcon.classList.add('visible');
-            darkIcon.classList.remove('hidden');
-        }
+    // Sembunyikan semua kecuali 6 pertama
+    items.forEach((item, index) => {
+        if (index >= visibleItems) item.style.display = "none";
+    });
+
+    // Tampilkan tombol jika lebih dari 6 activity
+    if (items.length > visibleItems) {
+        loadMoreBtn.classList.remove("hidden");
     }
 
-    // Set initial state
-    updateIcons(isDarkMode);
+    loadMoreBtn.addEventListener("click", function () {
+        items.forEach((item, index) => {
+            if (index < visibleItems + 6) {
+                item.style.display = "block";
+            }
+        });
 
-    // Toggle handler
-    document.getElementById('theme-toggle').addEventListener('click', function() {
-        document.documentElement.classList.toggle('dark');
-        updateIcons(document.documentElement.classList.contains('dark'));
+        visibleItems += 6;
+
+        if (visibleItems >= items.length) {
+            loadMoreBtn.style.display = "none";
+        }
     });
 });
