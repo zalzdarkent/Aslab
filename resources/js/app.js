@@ -223,7 +223,7 @@ document.addEventListener('alpine:init', () => {
 document.addEventListener("DOMContentLoaded", function () {
     let items = document.querySelectorAll(".activity-item");
     let loadMoreBtn = document.getElementById("loadMore");
-    let visibleItems = 6;
+    let visibleItems = 3;
 
     // Sembunyikan semua kecuali 6 pertama
     items.forEach((item, index) => {
@@ -248,4 +248,9 @@ document.addEventListener("DOMContentLoaded", function () {
             loadMoreBtn.style.display = "none";
         }
     });
+});
+
+// loader
+window.addEventListener('load', () => {
+    document.getElementById('loadingSpinner').style.display = 'none';
 });
