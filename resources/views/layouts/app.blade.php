@@ -137,7 +137,7 @@
                         </svg>
                     </div>
                     <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
-                        data-count="1200">0</h2>
+                        data-count="120000">0</h2>
                     <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Total Users</p>
                 </div>
 
@@ -156,7 +156,7 @@
                         </svg>
                     </div>
                     <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
-                        data-count="350">0</h2>
+                        data-count="3500">0</h2>
                     <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Completed Projects</p>
                 </div>
 
@@ -175,7 +175,7 @@
                         </svg>
                     </div>
                     <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
-                        data-count="5000">0</h2>
+                        data-count="50000">0</h2>
                     <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Hours of Support</p>
                 </div>
 
@@ -194,7 +194,7 @@
                         </svg>
                     </div>
                     <h2 class="relative text-4xl font-bold text-gray-900 dark:text-white group-hover:text-white count"
-                        data-count="25">0</h2>
+                        data-count="250">0</h2>
                     <p class="relative text-gray-500 dark:text-gray-400 group-hover:text-white">Hard Workers</p>
                 </div>
             </div>
@@ -291,7 +291,7 @@
                 <div class="flex space-x-4 transition-transform duration-500 ease-out" x-ref="slider"
                     :style="'transform: translateX(-' + (activeSlide * 100) + '%)'">
                     <!-- Card 1 -->
-                    <div class="min-w-full md:min-w-[33.333%] flex justify-center">
+                    <div data-aos="flip-left" data-aos-duration="2000" class="min-w-full md:min-w-[33.333%] flex justify-center">
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-gray-100 dark:hover:bg-gray-700">
                             <a href="#">
@@ -323,7 +323,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="min-w-full md:min-w-[33.333%] flex justify-center">
+                    <div data-aos="flip-up" data-aos-duration="2000" class="min-w-full md:min-w-[33.333%] flex justify-center">
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-gray-100 dark:hover:bg-gray-700">
                             <a href="#">
@@ -355,7 +355,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="min-w-full md:min-w-[33.333%] flex justify-center">
+                    <div data-aos="flip-right" data-aos-duration="2000" class="min-w-full md:min-w-[33.333%] flex justify-center">
                         <div
                             class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 transition-transform transform hover:scale-105 hover:shadow-xl hover:bg-gray-100 dark:hover:bg-gray-700">
                             <a href="#">
@@ -435,14 +435,13 @@
                 solutions.
             </p>
 
-            {{-- User profile cards --}}
             {{-- User profile cards carousel --}}
             <div class="relative" x-data="{ activeSlide: 0, slides: [0, 1, 2] }">
                 <div class="relative overflow-hidden">
                     <div class="flex transition-transform duration-500 ease-in-out"
                         :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
                         <!-- Card 1 -->
-                        <div class="flex-none w-full md:w-1/3 px-4">
+                        <div data-aos="zoom-in" data-aos-duration="2000" class="flex-none w-full md:w-1/3 px-4">
                             <div
                                 class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                                 <div class="flex flex-col items-center">
@@ -496,7 +495,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-none w-full md:w-1/3 px-4">
+                        <div data-aos="zoom-in-up" data-aos-duration="2000" class="flex-none w-full md:w-1/3 px-4">
                             <div
                                 class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                                 <div class="flex flex-col items-center">
@@ -550,7 +549,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-none w-full md:w-1/3 px-4">
+                        <div data-aos="zoom-in-down" data-aos-duration="2000" class="flex-none w-full md:w-1/3 px-4">
                             <div
                                 class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                                 <div class="flex flex-col items-center">
@@ -647,7 +646,10 @@
             </div>
         </div>
     </section>
-
+    {{-- Garis --}}
+    <div class="container mx-auto">
+        <div class="w-full max-w-4xl mx-auto border-t border-gray-300 dark:border-none"></div>
+    </div>
     {{-- activity --}}
     <section class="relative pt-10 md:pt-15 lg:pt-24 py-10 bg-gray-100 dark:bg-gray-900" id="activity">
         <div class="max-w-screen-xl mx-auto px-4">
@@ -736,7 +738,11 @@
             </div>
         </div>
     </section>
-
+    {{-- Garis --}}
+    <div class="container mx-auto">
+        <div class="w-full max-w-4xl mx-auto border-t border-gray-300 dark:border-none"></div>
+    </div>
+    {{-- FAQ --}}
     <section class="py-16 bg-gray-100 dark:bg-gray-800">
         <div class="max-w-screen-xl mx-auto px-4">
             <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center">FAQ</h2>
@@ -744,7 +750,6 @@
                 Get to know the talented individuals behind our company who work tirelessly to deliver innovative
                 solutions.
             </p>
-
 
             <div id="accordion-open" data-accordion="open">
                 <h2 id="accordion-open-heading-1">
@@ -845,7 +850,13 @@
         </div>
     </section>
 
-    <section class="relative pt-10 md:pt-15 lg:pt-24 py-10 pb-10 md:pb-15 lg:pb-24 px-10 bg-gray-100 dark:bg-gray-900" id="contact">
+    {{-- Garis --}}
+    <div class="container mx-auto">
+        <div class="w-full max-w-4xl mx-auto border-t border-gray-300 dark:border-none"></div>
+    </div>
+    {{-- contact --}}
+    <section class="relative pt-10 md:pt-15 lg:pt-24 py-10 pb-10 md:pb-15 lg:pb-24 px-10 bg-gray-100 dark:bg-gray-900"
+        id="contact">
         <div class="max-w-screen-xl mx-auto px-4">
             <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center">Contact Us</h2>
             <p class="text-lg text-gray-700 dark:text-gray-400 text-center mb-12">
@@ -891,8 +902,7 @@
 
                 <!-- Right Column (Map) -->
                 <div class="relative w-full h-96 rounded-lg overflow-hidden">
-                    <iframe
-                        class="lazy-load"
+                    <iframe class="lazy-load"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5457189589297!2d107.30639839999999!3d-6.3232398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6977ccb34822e1%3A0x6c4c7c12678610e0!2sUniversitas%20Singaperbangsa%20Karawang%20(UNSIKA)!5e0!3m2!1sid!2sid!4v1739242972745!5m2!1sid!2sid"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -901,6 +911,7 @@
         </div>
     </section>
 
+    {{-- loader --}}
     <div id="loadingSpinner" class="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
         <div class="w-16 h-16 border-4 border-t-blue-500 border-transparent rounded-full animate-spin"></div>
     </div>
@@ -910,9 +921,10 @@
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <a href="https://flowbite.com/" class="flex items-center">
-                        <img src="{{asset("images/logo/logolabkom.png")}}" class="h-8 me-3" alt="FlowBite Logo" />
+                        <img src="{{ asset('images/logo/logolabkom.png') }}" class="h-8 me-3" alt="FlowBite Logo" />
                         <span
-                            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-gray-700">Labkom Unsika</span>
+                            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-gray-700">Labkom
+                            Unsika</span>
                     </a>
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
