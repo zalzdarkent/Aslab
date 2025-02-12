@@ -1,4 +1,4 @@
-<section id="services" class="relative pt-10 md:pt-15 lg:pt-24 py-10" x-data="{
+<section id="topics" class="relative pt-10 md:pt-15 lg:pt-24 py-10" x-data="{
     activeSlide: 0,
     slides: [0, 1, 2],
     totalSlides: 3,
@@ -16,7 +16,7 @@
     }
 }">
     <div class="max-w-screen-xl mx-auto px-4">
-        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center">Our New Services</h2>
+        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-8 text-center">Our Hot Topics</h2>
         <p class="text-lg text-gray-700 dark:text-gray-400 text-center mb-12">
             We provide a range of innovative solutions that help your business grow and succeed in a fast-changing
             digital landscape. Explore our services below and see how we can help you achieve your goals.
