@@ -33,82 +33,86 @@ class AnggotaResource extends Resource
     {
         return $form
             ->schema([
-                Card::make()
-                    ->schema([
-                        Grid::make(5)
-                            ->schema([
-                                TextInput::make('name')
-                                    ->required()
-                                    ->maxLength(255),
-
-                                TextInput::make('npm')
-                                    ->required()
-                                    ->maxLength(255),
-
-                                Select::make('jabatan_id')
-                                    ->label('Jabatan')
-                                    ->relationship('jabatan', 'name')
-                                    ->searchable()
-                                    ->preload()
-                                    ->required(),
-
-                                Select::make('divisi_id')
-                                    ->label('Divisi')
-                                    ->relationship('divisi', 'name')
-                                    ->searchable()
-                                    ->preload()
-                                    ->required(),
-
-                                Select::make('prodi_id')
-                                    ->label('Prodi')
-                                    ->relationship('prodi', 'name')
-                                    ->searchable()
-                                    ->preload()
-                                    ->required(),
-
-                                FileUpload::make('foto')
-                                    ->label('Foto')
-                                    ->image()
-                                    ->directory('uploads/foto')
-                                    ->required(),
-
-                                TextInput::make('facebook')
-                                    ->label('Facebook')
-                                    ->maxLength(255),
-
-                                TextInput::make('instagram')
-                                    ->label('Instagram')
-                                    ->maxLength(255),
-
-                                TextInput::make('github')
-                                    ->label('GitHub')
-                                    ->maxLength(255),
-
-                                TextInput::make('twitter')
-                                    ->label('X (Twitter)')
-                                    ->maxLength(255),
-                            ]),
-                    ]),
+                Forms\Components\Card::make([
+                    Forms\Components\Grid::make(2) // Menentukan grid dengan 2 kolom
+                        ->schema([
+                            Forms\Components\TextInput::make('name')
+                                ->label('Name')
+                                ->required()
+                                ->maxLength(255),
+                            Forms\Components\TextInput::make('npm')
+                                ->label('NPM')
+                                ->required()
+                                ->maxLength(255),
+                            Forms\Components\Select::make('jabatan_id')
+                                ->label('Jabatan')
+                                ->relationship('jabatan', 'name')
+                                ->searchable()
+                                ->preload()
+                                ->required(),
+                            Forms\Components\Select::make('divisi_id')
+                                ->label('Divisi')
+                                ->relationship('divisi', 'name')
+                                ->searchable()
+                                ->preload()
+                                ->required(),
+                            Forms\Components\Select::make('prodi_id')
+                                ->label('Prodi')
+                                ->relationship('prodi', 'name')
+                                ->searchable()
+                                ->preload()
+                                ->required(),
+                            Forms\Components\FileUpload::make('photo')
+                                ->label('Foto')
+                                ->image()
+                                ->directory('upload/photo') // Menyimpan ke storage/upload/photo
+                                ->visibility('public') // Agar bisa diakses secara publik
+                                ->required(),
+                            Forms\Components\TextInput::make('facebook')
+                                ->label('Facebook')
+                                ->maxLength(255),
+                            Forms\Components\TextInput::make('instagram')
+                                ->label('Instagram')
+                                ->maxLength(255),
+                            Forms\Components\TextInput::make('github')
+                                ->label('GitHub')
+                                ->maxLength(255),
+                            Forms\Components\TextInput::make('twitterx')
+                                ->label('X (Twitter)')
+                                ->maxLength(255),
+                        ]),
+                ]),
             ]);
     }
+
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('photo')
+                    ->label('Foto')
+                    ->circular(),
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('npm')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('jabatan_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('divisi_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('prodi_id')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('jabatan.name')
+                    ->label('Jabatan')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('divisi.name')
+                    ->label('Divisi')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('prodi.name')
+                    ->label('Prodi')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -118,11 +122,10 @@ class AnggotaResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

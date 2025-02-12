@@ -11,6 +11,7 @@ class Anggota extends Model
     protected $fillable = [
         'name',
         'npm',
+        'photo',
         'jabatan_id',
         'divisi_id',
         'prodi_id',

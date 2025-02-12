@@ -34,10 +34,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('npm')->unique();
             $table->string('photo');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('github');
-            $table->string('twitterx');
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('github')->nullable();
+            $table->string('twitterx')->nullable();
             // Foreign Key
             $table->unsignedBigInteger('jabatan_id');
             $table->unsignedBigInteger('divisi_id');
