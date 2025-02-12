@@ -20,14 +20,18 @@
                                     <!-- Profile Image -->
                                     <div
                                         class="w-32 h-32 mb-4 overflow-hidden rounded-full border-4 border-blue-500 transition-transform duration-300 hover:scale-105">
-                                        <img src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
-                                            alt="Profile 1" class="w-full h-full object-cover">
+                                        <img src="{{ asset('storage/' . $item->photo) }}" alt="Profile 1"
+                                            class="w-full h-full object-cover">
                                     </div>
                                     <!-- Profile Info -->
-                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{$item->name}}</h3>
-                                    <p class="text-blue-600 dark:text-blue-400 font-medium mb-1">Senior Developer</p>
-                                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Engineering Division</p>
-                                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Informatika</p>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ $item->name }}
+                                    </h3>
+                                    <p class="text-blue-600 dark:text-blue-400 font-medium mb-1">
+                                        {{ $item->jabatan->name }}</p>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                                        Divisi{{ ' ' . $item->divisi->name }}</p>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">{{ $item->prodi->name }}
+                                    </p>
                                     <!-- Social Media Icons -->
                                     <div class="flex space-x-4">
                                         <a href="#"
@@ -38,7 +42,7 @@
                                                     d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
                                             </svg>
                                         </a>
-                                        <a href="#"
+                                        <a href="{{ $item->github }}"
                                             class="text-gray-600 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-400 transition-colors duration-300">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
                                                 aria-hidden="true">

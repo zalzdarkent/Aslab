@@ -15,6 +15,10 @@ class Anggota extends Model
         'jabatan_id',
         'divisi_id',
         'prodi_id',
+        'facebook',
+        'instagram',
+        'github',
+        'twitterx',
     ];
     public function jabatan(): BelongsTo
     {
