@@ -30,7 +30,7 @@
                     </li>
                 </ol>
                 <a href="#"
-                    class="mt-10 md:mt-10 lg:mt-10 inline-flex items-center px-5 py-3 text-base font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                    class="mt-10 md:mt-10 lg:mt-10 inline-flex items-center px-5 py-3 text-base font-medium text-white bg-[#1D4ED8] rounded-lg hover:bg-[#6183E4]">
                     Learn More
                     <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">

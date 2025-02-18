@@ -35,6 +35,8 @@ class AdminPanelProvider extends PanelProvider
             // ])
             ->collapsibleNavigationGroups(false)
             ->sidebarFullyCollapsibleOnDesktop()
+            ->brandLogo(asset('images/logo/logolabkom.png'))
+            ->favicon(asset('images/logo/logolabkom.png'))
             ->colors([
                 'primary' => '#1D4ED8',
                 'danger' => Color::Rose,
