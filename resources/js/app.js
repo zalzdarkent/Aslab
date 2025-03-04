@@ -181,10 +181,14 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('alpine:init', () => {
     Alpine.data('carouselData', () => ({
         activeSlide: 0,
-        slides: [0, 1, 2],
+        slides: [], // Akan diisi berdasarkan jumlah $anggotas
         autoplayInterval: null,
 
         init() {
+            // Hitung jumlah slides berdasarkan elemen yang ada
+            const slideElements = this.$el.querySelectorAll('.flex-none.w-full');
+            this.slides = Array.from({ length: slideElements.length }, (_, i) => i);
+            
             // Memulai autoplay saat komponen diinisialisasi
             this.startAutoplay();
 
@@ -193,29 +197,7 @@ document.addEventListener('alpine:init', () => {
             this.$el.addEventListener('mouseleave', () => this.startAutoplay());
         },
 
-        startAutoplay() {
-            this.autoplayInterval = setInterval(() => {
-                this.next();
-            }, 3000); // Ganti slide setiap 3 detik
-        },
-
-        stopAutoplay() {
-            if (this.autoplayInterval) {
-                clearInterval(this.autoplayInterval);
-            }
-        },
-
-        next() {
-            this.activeSlide = this.activeSlide === this.slides.length - 1 ? 0 : this.activeSlide + 1;
-        },
-
-        prev() {
-            this.activeSlide = this.activeSlide === 0 ? this.slides.length - 1 : this.activeSlide - 1;
-        },
-
-        goToSlide(index) {
-            this.activeSlide = index;
-        }
+        // Metode lainnya tetap sama
     }));
 });
 

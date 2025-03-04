@@ -20,6 +20,7 @@ class Anggota extends Model
         'instagram',
         'github',
         'twitterx',
+        'user_id',
     ];
     public function jabatan(): BelongsTo
     {

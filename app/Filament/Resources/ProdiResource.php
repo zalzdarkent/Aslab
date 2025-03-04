@@ -11,7 +11,9 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class ProdiResource extends Resource
 {
@@ -20,6 +22,15 @@ class ProdiResource extends Resource
     {
         return 'Prodi';
     }
+    public static function getPluralModelLabel(): string
+    {
+        return 'Prodi';
+    }
+    public static function query(EloquentBuilder $query): EloquentBuilder
+    {
+        return $query->where('user_id', Auth::id());
+    }
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Member Aslab';
 
@@ -27,6 +38,9 @@ class ProdiResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Hidden::make('user_id')
+                    ->default(Auth::id())
+                    ->dehydrated(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -37,6 +51,7 @@ class ProdiResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('user_id'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
@@ -53,6 +68,7 @@ class ProdiResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

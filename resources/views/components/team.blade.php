@@ -7,7 +7,7 @@
         </p>
 
         {{-- User profile cards carousel --}}
-        <div class="relative" x-data="{ activeSlide: 0, slides: [0, 1, 2] }">
+        <div class="relative" x-data="{ activeSlide: 0, slides: [...Array({{ count($anggotas) }}).keys()] }">
             <div class="relative overflow-hidden">
                 <div class="flex transition-transform duration-500 ease-in-out"
                     :style="{ transform: `translateX(-${activeSlide * 100}%)` }">
@@ -94,11 +94,11 @@
 
             <!-- Carousel Indicators -->
             <div class="flex justify-center mt-4 space-x-2">
-                <template x-for="(slide, index) in slides" :key="index">
-                    <button @click="activeSlide = index"
-                        :class="{ 'bg-blue-600': activeSlide === index, 'bg-gray-300': activeSlide !== index }"
+                @foreach ($anggotas as $index => $item)
+                    <button @click="goToSlide({{ $index }})"
+                        :class="{ 'bg-blue-600': activeSlide === {{ $index }}, 'bg-gray-300': activeSlide !== {{ $index }} }"
                         class="w-3 h-3 rounded-full transition-colors duration-300"></button>
-                </template>
+                @endforeach
             </div>
         </div>
         {{-- View More Button --}}

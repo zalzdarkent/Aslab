@@ -13,8 +13,10 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\AnggotaResource\Pages;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\AnggotaResource\RelationManagers;
 
@@ -25,6 +27,11 @@ class AnggotaResource extends Resource
     {
         return 'Anggota';
     }
+    public static function getPluralModelLabel(): string
+    {
+        return 'Anggota';
+    }
+
     protected static ?string $navigationIcon = 'heroicon-o-users';
     protected static ?string $navigationGroup = 'Member Aslab';
 
@@ -43,6 +50,7 @@ class AnggotaResource extends Resource
                             Forms\Components\TextInput::make('npm')
                                 ->label('NPM')
                                 ->required()
+                                ->unique(table: 'anggota', column: 'npm')
                                 ->maxLength(255),
                             Forms\Components\Select::make('jabatan_id')
                                 ->label('Jabatan')
@@ -93,6 +101,11 @@ class AnggotaResource extends Resource
                 Tables\Columns\ImageColumn::make('photo')
                     ->label('Foto')
                     ->circular(),
+                Tables\Columns\TextColumn::make('user_id')
+                    ->label('User ID')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
